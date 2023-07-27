@@ -12,33 +12,42 @@ import avatar from '../../assets/images/avatar.jpg';
 const NavButton = ({ title, callback, icon, color, dotColor }) => {
   return (
     <TooltipComponent content={title} position="BottomCenter">
-      <button type="button" onClick={callback} style={{ color }} className="relative text-xl rounded-full hover:bg-light-gray">
-        <span style={{ background: dotColor }} className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2">
-          {icon}
-        </span>
+      <button type="button" onClick={callback} style={{ color }} className="relative text-xl p-3 rounded-full hover:bg-light-gray">
+        <span style={{ background: dotColor }} className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"/>
+        {icon}
       </button>
     </TooltipComponent>
   );
 };
 
 export const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClickModals,
+  screenSize, setScreenSize } = useStateContext();
 
-  const handleClick = () => {};
+  useEffect(() => {
+    setScreenSize(window.innerWidth)
+  }, []);
+
+  useEffect(() => {
+    if(screenSize < 900){
+      setActiveMenu(false);
+    }else{
+      setActiveMenu(true)
+    }
+  }, [screenSize])
 
   return (
-    <div className="flex justify-between p-2 md:mx-6 relative">
+    <div className="flex justify-between item-center p-2 md:mx-6 relative">
       <NavButton title="Menu" callback={() => setActiveMenu((prev) => !prev)} color="blue" icon={<AiOutlineMenu />} />
 
-      <div className="flex">
-        <NavButton title="Cart" callback={() => handleClick('cart')} color="blue" icon={<FiShoppingCart />} />
-
-        <NavButton title="Chat" dotColor="#03c9d7" callback={() => handleClick('chat')} color="blue" icon={<BsChatLeft />} />
-
-        <NavButton title="Notification" dotColor="#03c9d7" callback={() => handleClick('notification')} color="blue" icon={<RiNotification3Line />} />
+      <div className="flex items-center">
+        
+        <NavButton title="Cart" callback={() => handleClickModals('cart')} color="blue" icon={<FiShoppingCart />} />
+        <NavButton title="Chat" dotColor="#03c9d7" callback={() => handleClickModals('chat')} color="blue" icon={<BsChatLeft />} />
+        <NavButton title="Notification" dotColor="#03c9d7" callback={() => handleClickModals('notification')} color="blue" icon={<RiNotification3Line />} />
 
         <TooltipComponent content="Profile" position="BottomCenter">
-          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClick('userProfile')}>
+          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClickModals('userProfile')}>
             <img className="rounded-full w-8 h-8" src={avatar} alt="avatar" />
             <p>
               <span className="text-gray-400 text-14">Hi, </span> {' '}
@@ -47,6 +56,11 @@ export const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14"/>
           </div>
         </TooltipComponent>
+
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );

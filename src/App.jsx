@@ -10,11 +10,12 @@ import './App.css';
 
 export const App = () => {
   const {activeMenu} = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
-          <div className="fixed right-4 bottom-4">
+          <div className="fixed right-4 bottom-4 z-10">
             <TooltipComponent content="Setting" position="Top">
               <button className="text-3xl p-3 hover:bg-blue-700 text-white rounded-full bg-blue-800" type="button">
                 <FiSettings />
@@ -22,23 +23,17 @@ export const App = () => {
             </TooltipComponent>
           </div>
 
-          {
-            activeMenu
-            ? (
-              <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white z-10">
-                <Sidebar />
-              </div>
-            )
-            : (
-              <div className="w-0 dark:bg-secondary-dark-bg">
-                <Sidebar />
-              </div>
-            )
-          }
+          <div 
+            className={`${activeMenu ? "left-0" : "-left-full"} w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white z-10`}
+            style={{transition: "all .4s"}}
+          >
+            <Sidebar />
+          </div>
 
           <div className={
-            `dark:bg-main-bg bg-main-bg min-h-screen w-full
-            ${activeMenu ? "md:ml-72" : "flex-2"}`}
+            `relative dark:bg-main-bg bg-main-bg min-h-screen w-full
+            ${activeMenu ? "md:pl-72" : "flex-2"}`}
+            style={{transition: "all .4s"}}
             >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar /> 

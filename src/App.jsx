@@ -9,15 +9,21 @@ import { useStateContext } from './context/ContextProvider';
 import './App.css';
 
 export const App = () => {
-  const {activeMenu} = useStateContext();
+  const {activeMenu, setIsThemeModal} = useStateContext();
 
   return (
     <div>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4 z-10">
+
             <TooltipComponent content="Setting" position="Top">
-              <button className="text-3xl p-3 hover:bg-blue-700 text-white rounded-full bg-blue-800" type="button">
+              <button 
+                className="text-3xl p-3 hover:bg-blue-700 text-white rounded-full bg-blue-800" 
+                type="button"
+                onClick={() => setIsThemeModal(true)}
+              >
+
                 <FiSettings />
               </button>
             </TooltipComponent>
@@ -40,6 +46,8 @@ export const App = () => {
             </div>
       
             <div>
+              <ThemeSettings />
+
               <Routes>
                 <Route path="/" element={<Ecommerce />}/>
                 <Route path="/ecommerce" element={<Ecommerce />}/>

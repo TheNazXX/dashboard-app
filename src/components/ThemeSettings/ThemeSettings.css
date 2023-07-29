@@ -1,0 +1,52 @@
+.theme-custom-label{
+  cursor: pointer;
+}
+
+
+.theme-custom-checkbox{
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  margin: 0 8px;
+  width: 48px;
+  height: 24px;
+  border: 2px solid #FBC02D;
+  border-radius: 12px;
+  transition: all .4s;
+}
+
+.theme-custom-checkbox::after{
+  content: "";
+  position: absolute;
+  left: 10%;
+  width: 16px;
+  height: 16px;
+  background-color: #FBC02D;
+  border-radius: 50%;
+  transition: all .4s;
+}
+
+.theme-custom-label > span[id="darkTheme"]{
+  opacity: .5;
+}
+
+.theme-custom-label > input:checked ~ span[id="darkTheme"]{
+  opacity: 1;
+}
+
+.theme-custom-label > input:checked ~ span[id="lightTheme"]{
+  opacity: .5;
+}
+
+.theme-custom-label > input:checked ~ .theme-custom-checkbox {
+  border: 2px solid #33373E;
+}
+
+.theme-custom-label > input:checked ~ .theme-custom-checkbox::after{
+  background-color: #33373E;
+  left: 55%;
+};
+
+
+

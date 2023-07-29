@@ -35,6 +35,8 @@ export const Navbar = () => {
     }
   }, [screenSize]);
 
+
+
   return (
     <div className="flex justify-between item-center p-2 md:mx-6 relative">
       {/* <NavButton title="Menu" callback={() => setActiveMenu((prev) => !prev)} color="blue" icon={<AiOutlineMenu />} /> */}

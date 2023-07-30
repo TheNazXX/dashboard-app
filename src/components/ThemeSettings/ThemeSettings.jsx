@@ -20,8 +20,8 @@ export const ThemeSettings = () => {
       className="bg-half-transparent w-screen fixed nav-item top-0 right-0 cursor-pointer"
       style={{
         transition: 'all .2s',
-        zIndex: isThemeModal ? 100 : -1,
-        opacity: isThemeModal ?  1 : 0
+        opacity: isThemeModal ?  1 : 0,
+        zIndex: isThemeModal ? 100 : -1
       }}
       onClick={handleCloseThemeModal}
       id="themeMask"

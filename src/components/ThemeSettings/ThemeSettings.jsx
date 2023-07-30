@@ -27,7 +27,7 @@ export const ThemeSettings = () => {
       id="themeMask"
     >
       <div 
-        className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] cursor-default"
+        className="float-right h-screen dark:text-gray-200 dark:bg-secondary-dark-bg bg-white cursor-default"
         style={{
           transition: "all .4s ease-in-out",
           transform: isThemeModal ? "translateX(0px)" : "translateX(1000px)"
@@ -40,22 +40,22 @@ export const ThemeSettings = () => {
           </button>
         </div>
 
-        <div className="border-t-1 border-color p-4 ml-4">
+        <div className="border-t-1 border-color dark:border-gray-200 p-4 ml-4">
           <p className="font-semibold">Theme Options</p>
           <div className="mt-4">
             <label htmlFor="themeSwitcher" className="theme-custom-label flex items-center">
-              <input id="themeSwitcher" name="theme" type="checkbox" className="w-0" />
-              <span className="font-bold text-3xl" id="lightTheme" style={{ color: '#FBC02D' }}>
+              <input id="themeSwitcher" name="theme" type="checkbox" className="w-0" onChange={handleThemeMode} value="themeMode" checked={themeMode === "dark"}/>
+              <span className="font-bold text-3xl text-[#FBC02D]" id="lightTheme">
                 <BsFillSunFill />
               </span>
               <div className="theme-custom-checkbox" />
-              <span className="font-bold text-xl" id="darkTheme" style={{ color: '#33373E' }}>
+              <span className="font-bold text-xl text-black dark:text-white" id="darkTheme">
                 <BsFillMoonStarsFill />
               </span>
             </label>
           </div>
         </div>
-        <div className="border-t-1 border-color p-4 ml-4">
+        <div className="border-t-1 border-color dark:border-gray-200 p-4 ml-4">
           <p className="font-semibold">Theme Colors</p>
           <div className="flex flex-wrap gap-3">
             {themeColors.map(({ name, color }, idx) => (
@@ -64,9 +64,9 @@ export const ThemeSettings = () => {
                   <button 
                     className="h-10 w-10 rounded-full cursor-pointer"
                     style={{backgroundColor: color}}
-                    onClick={() => {}}
+                    onClick={() => handleThemeColor(color)}
                   >
-                    <BsCheck className={`ml-2 text-2xl text-white  ${true ? "block": "hidden"}`}/>
+                    <BsCheck className={`ml-2 text-2xl text-white  ${themeColor === color ? "block": "hidden"}`}/>
                   </button>
                 </div>
               </TooltipComponent>

@@ -12,7 +12,7 @@ import avatar from '../../assets/images/avatar.jpg';
 const NavButton = ({ title, callback, icon, color, dotColor }) => {
   return (
     <TooltipComponent content={title} position="BottomCenter">
-      <button type="button" onClick={callback} style={{ color }} className="relative text-xl p-3 rounded-full hover:bg-light-gray">
+      <button type="button" onClick={callback} style={{ color }} className="relative text-2xl p-3 rounded-full hover:bg-light-gray dark:hover:bg-secondary-dark-bg">
         <span style={{ background: dotColor }} className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2" />
         {icon}
       </button>
@@ -21,7 +21,7 @@ const NavButton = ({ title, callback, icon, color, dotColor }) => {
 };
 
 export const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClickModals, screenSize, setScreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClickModals, screenSize, setScreenSize, themeColor, themeMode } = useStateContext();
 
   useEffect(() => {
     setScreenSize(window.innerWidth);
@@ -40,16 +40,21 @@ export const Navbar = () => {
   return (
     <div className="flex justify-between item-center p-2 md:mx-6 relative">
       {/* <NavButton title="Menu" callback={() => setActiveMenu((prev) => !prev)} color="blue" icon={<AiOutlineMenu />} /> */}
-      <button className="w-10 h-10 relative bg-slate-600 rounded-md" onClick={() => setActiveMenu((prev) => !prev)}>
+      <button 
+        className="w-10 h-10 relative rounded-md" 
+        onClick={() => setActiveMenu((prev) => !prev)}
+        style={{backgroundColor: themeColor}}
+      >
         <span className={`absolute w-6 h-[2px] bg-white top-[10px] left-0 right-0 mx-auto rounded-full rotate ${activeMenu ? '-rotate-[135deg] top-[19px]' : 'rotate-0'}`} style={{ transition: 'all .4s' }} />
         <span className={`absolute w-6 h-[2px] bg-white top-1/2 -translate-y-1/2 left-0 right-0 mx-auto rounded-full ${activeMenu ? 'opacity-0' : 'opacity-100'}`} style={{ transition: 'all .4s' }} />
         <span className={`absolute w-6 h-[2px] bg-white bottom-[10px] left-0 right-0 mx-auto rounded-full  ${activeMenu ? 'rotate-[135deg] bottom-[19px]' : 'rotate-0'}`} style={{ transition: 'all .4s' }} />
       </button>
 
       <div className="flex items-center">
-        <NavButton title="Cart" callback={() => handleClickModals('cart')} color="blue" icon={<FiShoppingCart />} />
-        <NavButton title="Chat" dotColor="#03c9d7" callback={() => handleClickModals('chat')} color="blue" icon={<BsChatLeft />} />
-        <NavButton title="Notification" dotColor="#03c9d7" callback={() => handleClickModals('notification')} color="blue" icon={<RiNotification3Line />} />
+        <NavButton title="Cart" callback={() => handleClickModals('cart')} color={themeColor} icon={<FiShoppingCart />} />
+
+        <NavButton title="Chat" dotColor={themeMode === 'light' ? "#03C9D7" : "#fff"} callback={() => handleClickModals('chat')} color={themeColor} icon={<BsChatLeft />} />
+        <NavButton title="Notification" dotColor={themeMode === 'light' ? "#03C9D7" : "#fff"} callback={() => handleClickModals('notification')} color={themeColor} icon={<RiNotification3Line />} />
 
         <TooltipComponent content="Profile" position="BottomCenter">
           <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClickModals('userProfile')}>

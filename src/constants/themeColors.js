@@ -23,4 +23,8 @@ export const themeColors = [
     color: '#FB9678',
     name: 'orange-theme',
   },
+  {
+    color: '#64748B',
+    name: 'dark-theme',
+  },
 ];

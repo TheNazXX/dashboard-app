@@ -13,20 +13,21 @@ export const ContextProvider = ({children}) => {
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
 
-  const [themeColor, setThemeColor] = useState("#03c9d7");
-  const [themeMode, setThemeMode] = useState("Light");
+  const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "#1A97F5");
+  const [themeMode, setThemeMode] = useState(localStorage.getItem("themeMode") || "light");
   const [isThemeModal, setIsThemeModal] = useState(false);
 
   const handleThemeMode = (e) => {
-    setThemeMode(e.current.value);
-
-    localStorage.setItem("themeMode", e.target.value);
+    const themeMode = e.target.checked ? "dark" : "light";
+    
+    setThemeMode(themeMode)
+    localStorage.setItem("themeMode", themeMode);
   };
 
-  const handleThemeColor = (e) => {
-    setThemeColor(e.current.value);
-
-    localStorage.setItem("themeColor", e.target.value);
+  const handleThemeColor = (color) => {
+    setThemeColor(color);
+    localStorage.setItem("themeColor", color);
+    setIsThemeModal(false);
   };
 
   const handleClickModals = (clicked) => {

@@ -40,11 +40,11 @@
 }
 
 .theme-custom-label > input:checked ~ .theme-custom-checkbox {
-  border: 2px solid #33373E;
+  border: 2px solid #fff;
 }
 
 .theme-custom-label > input:checked ~ .theme-custom-checkbox::after{
-  background-color: #33373E;
+  background-color:#fff;
   left: 55%;
 };
 

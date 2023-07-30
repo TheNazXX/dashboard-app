@@ -5,21 +5,22 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../../context/ContextProvider';
 import { links } from '../../constants/sidebarLinks';
 
+
 export const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, themeColor } = useStateContext();
 
   const handleCloseSidebar = () => {
     if(activeMenu && screenSize <= 900){
       setActiveMenu(false);
     };
   };
-
+  console.log(themeColor)
   return (
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto">
       <div className="flex justify-between items-center">
 
         <Link 
-          className="flex items-center gap-3 mt-4 text-xl font-extrabold tracking-tight dark:text-white text-slate-900" 
+          className="flex items-center gap-3 mt-4 text-xl font-extrabold tracking-tight dark:text-gray-200 text-slate-900" 
           to="/" 
           onClick={handleCloseSidebar}
         >
@@ -48,8 +49,12 @@ export const Sidebar = () => {
                 to={`/${name}`}
                 onClick={() => {}}
                 className={({ isActive }) => {
-                  return isActive ? 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-700 m-2 bg-gray-300' : 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+                  return `flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg m-2
+                  ${isActive ? `text-white` : `dark:hover:text-white dark:hover:bg-main-dark-bg hover:bg-gray-200 hover:text-white text-gray-700 dark:text-gray-200`}`
                 }}
+                style={({isActive}) => ({
+                  backgroundColor: isActive && themeColor,
+                })}
               >
                 {icon}
                 <span className="capitalize">{name}</span>

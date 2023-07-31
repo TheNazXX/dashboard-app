@@ -1,5 +1,5 @@
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, LineSeries, Inject, DateTime, Legend, Tooltip} from "@syncfusion/ej2-react-charts";
-import {lineCustomSeries, linePrimaryYAxis, LinePrimaryXAxis, LinePrimaryYAxis} from "../../constants/lineChartData"
+import {lineCustomSeries, LinePrimaryXAxis, LinePrimaryYAxis} from "../../constants/lineChartData"
 import { useStateContext } from "../../context/ContextProvider";
 
 export const LineChart = () => {
@@ -8,6 +8,7 @@ export const LineChart = () => {
   return (
     <ChartComponent 
       id="line-chart" 
+      width="100%"
       height="420px"
       primaryXAxis={LinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}

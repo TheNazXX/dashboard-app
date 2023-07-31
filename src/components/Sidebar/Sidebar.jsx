@@ -14,7 +14,7 @@ export const Sidebar = () => {
       setActiveMenu(false);
     };
   };
-  console.log(themeColor)
+
   return (
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto">
       <div className="flex justify-between items-center">

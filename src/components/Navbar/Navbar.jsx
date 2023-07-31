@@ -57,7 +57,7 @@ export const Navbar = () => {
         <NavButton title="Notification" dotColor={themeMode === 'light' ? "#03C9D7" : "#fff"} callback={() => handleClickModals('notification')} color={themeColor} icon={<RiNotification3Line />} />
 
         <TooltipComponent content="Profile" position="BottomCenter">
-          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClickModals('userProfile')}>
+          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg dark:hover:bg-secondary-dark-bg" onClick={() => handleClickModals('userProfile')}>
             <img className="rounded-full w-8 h-8" src={avatar} alt="avatar" />
             <p>
               <span className="text-gray-400 text-14">Hi, </span> <span className="text-gray-400 font-bold ml-1 text-14">Nazar</span>

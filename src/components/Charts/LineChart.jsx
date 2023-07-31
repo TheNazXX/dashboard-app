@@ -15,6 +15,7 @@ export const LineChart = () => {
       chartArea={{border: {width: 0}}}
       tooltip={{enable: true}}
       background={themeMode === "dark" ? "#33373e" : "#fff"}
+      legendSettings={{background: "white"}}
     >
       <Inject
         services={[LineSeries, DateTime, Legend, Tooltip]}

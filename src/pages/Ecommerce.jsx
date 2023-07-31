@@ -9,11 +9,11 @@ export const Ecommerce = () => {
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3"> 
+        <div className="dark:text-gray-200 h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3" style={{backgroundColor: themeColor}}> 
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.72</p>
+              <p className="font-bold text-gray-200">Earnings</p>
+              <p className="text-2xl text-gray-100 font-bold">$63,448.72</p>
             </div>
           </div>
 

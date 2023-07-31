@@ -11,12 +11,12 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './App.css';
 
 export const App = () => {
-  const { activeMenu, setIsThemeModal, themeColor, themeMode } = useStateContext();
+  const { activeMenu, isThemeModal, setIsThemeModal, themeColor, themeMode } = useStateContext();
   const location = useLocation();
 
   return (
     <div className={themeMode}>
-      <div className="flex relative">
+      <div className="flex relative ">
         <div className="fixed right-4 bottom-4 z-10">
           <TooltipComponent content="Setting" position="Top">
             <button 
@@ -37,7 +37,9 @@ export const App = () => {
         <div
           className={`relative dark:bg-main-dark-bg bg-main-bg min-h-screen w-full
             ${activeMenu ? 'md:pl-72' : 'flex-2'}`}
-          style={{ transition: 'all .4s' }}
+          style={{ 
+            transition: 'all .4s',
+          }}
         >
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg w-full z-10">
             <Navbar />

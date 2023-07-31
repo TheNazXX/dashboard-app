@@ -1,5 +1,5 @@
 import { GoDotFill } from 'react-icons/go';
-import {Stacked, Button, SparkLine} from "../components";
+import {StackedChart, Button, SparkLine} from "../components";
 import {earningData, SparklineAreaData} from "../constants/ecommerceData";
 import { useStateContext } from "../context/ContextProvider";
 
@@ -110,7 +110,7 @@ export const Ecommerce = () => {
               </div>
             </div>
 
-            <Stacked width="320px" height="320px"/>
+            <StackedChart width="320px" height="320px"/>
           </div>
         </div>
       </div>

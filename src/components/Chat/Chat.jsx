@@ -11,7 +11,7 @@ export const Chat = () => {
   };
 
   return (
-    <LayoutSmModal title="Messages" subtitle="New 5" isOpened={isClickedModals.chat} handleClose={handleClose} rightPosition="60">
+    <LayoutSmModal title="Messages" subtitle="New 5" isOpened={isClickedModals.chat} handleClose={handleClose} rightPosition="18%">
       <div className="mt-8">
         {chatData.map(({ image, message, desc, time }) => (
           <div key={time} className="flex items-center gap-4 mt-4 pb-4 px-0 md:px-4 border-b-2 border-color">

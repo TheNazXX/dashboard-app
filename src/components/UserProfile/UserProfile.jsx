@@ -13,7 +13,7 @@ export const UserProfile = () => {
   };
 
   return (
-    <LayoutSmModal title="User Profile" isOpened={isClickedModals.userProfile} handleClose={handleClose} rightPosition="24">
+    <LayoutSmModal title="User Profile" isOpened={isClickedModals.userProfile} handleClose={handleClose} rightPosition="6%">
       <div className="mt-6">
         <div className="flex items-center gap-6 border-b-1 border-color pb-6 md:pr-16">
           <img className='w-32 h-32 rounded-full' src={avatar} alt="User Avatar" />

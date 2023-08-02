@@ -11,7 +11,7 @@ export const Notification = () => {
   };
 
   return (
-    <LayoutSmModal title="Notification" isOpened={isClickedModals.notification} handleClose={handleClose} rightPosition="44">
+    <LayoutSmModal title="Notification" isOpened={isClickedModals.notification} handleClose={handleClose} rightPosition="14%">
       <div className="mt-8">
         {chatData.map(({ image, message, desc, time }) => (
           <div key={message} className="flex items-center gap-4 mt-4 pb-4 px-0 md:px-4 border-b-2 border-color">

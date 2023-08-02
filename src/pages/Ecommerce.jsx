@@ -46,7 +46,7 @@ export const Ecommerce = () => {
 
         <div className="flex m-3 flex-wrap justify-start gap-1 items-center">
           {earningData.map(({ title, icon, iconColor, iconBg, amount, percentage, pcColor }) => (
-            <div key={title} className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl">
+            <div key={title} className="flex justify-between items-center md:flex-col bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl w-full">
               <button
                 type="button"
                 style={{
@@ -95,7 +95,7 @@ export const Ecommerce = () => {
           </div>
 
           <div className="mt-10 flex gap-10 flex-wrap justify-center">
-            <div className="border-r-1 border-color m-4 pr-10">
+            <div className="border-r-1 border-color m-2 md:m-4 md:pr-10">
               <div>
                 <p>
                   <span className="text-3xl font-semibold">$93,438</span>

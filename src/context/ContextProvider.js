@@ -36,6 +36,17 @@ export const ContextProvider = ({children}) => {
     });
   };
 
+  const handleCloseAllModals = () => {
+    setIsClickedModals({
+      ...initialState
+    });
+  };
+
+  const handleIsThemeModal = (bool) => {
+    setIsThemeModal(bool);
+    handleCloseAllModals();
+  };
+
   return (
     <StateContext.Provider
       value={{
@@ -55,7 +66,7 @@ export const ContextProvider = ({children}) => {
         handleThemeMode,
 
         isThemeModal,
-        setIsThemeModal
+        handleIsThemeModal
       }}
     >
       {children}

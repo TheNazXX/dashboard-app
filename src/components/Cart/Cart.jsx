@@ -46,7 +46,7 @@ export const Cart = () => {
           </div>
         ))}
 
-        <div className="mt-5">
+        <div className="mt-5  md:pb-0 pb-10">
           <div className="flex justify-between dark:text-gray-200 text-md">
             <p>Sub Total</p>
             <p className="font-semibold">$890</p>

@@ -22,7 +22,7 @@ export const LayoutLeftSideModal = ({children, title, isOpened, handleClose}) =>
       onClick={handleClickClose}
     >
       <div 
-        className="float-right dark:text-gray-200 dark:bg-secondary-dark-bg bg-white cursor-default min-h-screen"
+        className="float-right dark:text-gray-200 dark:bg-secondary-dark-light-bg bg-white cursor-default h-screen overflow-auto"
         style={{
           transition: "all .4s",
           transform: isOpened  ? "translateX(0px)" : "translateX(1000px)"

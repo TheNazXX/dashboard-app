@@ -7,10 +7,10 @@ import { LayoutLeftSideModal } from '../layouts/LayoutLeftSideModal';
 import './ThemeSettings.css';
 
 export const ThemeSettings = () => {
-  const { themeColor, handleThemeColor, themeMode, handleThemeMode, isThemeModal, setIsThemeModal } = useStateContext();
+  const { themeColor, handleThemeColor, themeMode, handleThemeMode, isThemeModal, handleIsThemeModal } = useStateContext();
 
   return (
-    <LayoutLeftSideModal title="Settings" isOpened={isThemeModal} handleClose={() => setIsThemeModal(false)}>
+    <LayoutLeftSideModal title="Settings" isOpened={isThemeModal} handleClose={() => handleIsThemeModal(false)}>
       <div className="border-t-1 border-color dark:border-gray-200 p-4 ml-4">
         <p className="font-semibold">Theme Options</p>
         <div className="mt-4">

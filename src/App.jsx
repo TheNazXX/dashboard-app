@@ -1,8 +1,8 @@
-import { createRef, useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-import { Navbar, Footer, Sidebar, ThemeSettings, Cart, Chat, Notification, UserProfile } from './components';
+import { Navbar, Sidebar, ThemeSettings, Cart, Chat, Notification, UserProfile } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import { useStateContext } from './context/ContextProvider';
 
@@ -11,7 +11,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './App.css';
 
 export const App = () => {
-  const { activeMenu, setIsThemeModal, themeColor, themeMode, isClickedModals} = useStateContext();
+  const { activeMenu, handleIsThemeModal, themeColor, themeMode, isClickedModals} = useStateContext();
   const location = useLocation();
 
   return (
@@ -22,7 +22,7 @@ export const App = () => {
             <button 
               className="text-3xl p-3 hover:bg-blue-700 text-white rounded-full" 
               type="button" 
-              onClick={() => setIsThemeModal(true)}
+              onClick={() => handleIsThemeModal(true)}
               style={{backgroundColor: themeColor}}
             >
               <FiSettings />
@@ -78,9 +78,9 @@ export const App = () => {
 
         
         <Cart />
-        {isClickedModals.chat && <Chat />}
-        {isClickedModals.notification && <Notification />}
-        {isClickedModals.userProfile && <UserProfile />}
+        <Chat />
+        <Notification />
+        <UserProfile />
       </div>
     </div>
   );

@@ -14,3 +14,4 @@ export * from './Charts/StackedChart';
 export * from './Charts/PieChart';
 export * from './ChartsHeader/ChartsHeader';
 export * from './Header/Header';
+export * from './layouts/LayoutLeftSideModal';

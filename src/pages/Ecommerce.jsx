@@ -216,7 +216,7 @@ export const Ecommerce = () => {
 
           <div className="mt-10">
             {weeklyStats.map(({ icon, title, amount, desc, iconBg, pcColor }) => (
-              <div className="flex justify-between mt-4">
+              <div key={title} className="flex justify-between mt-4">
                 <div className="flex gap-4">
                   <button style={{ backgroundColor: iconBg }} className="tex-2xl rounded-full text-white p-3 hover:drop-shadow-xl">
                     {icon}
@@ -274,8 +274,8 @@ export const Ecommerce = () => {
             <p className="text-md mb-2 font-semi-bold">Leaders</p>
 
             <div className="flex gap-4">
-              {medicalproBranding.leaders.map(({ image }) => (
-                <img key={image} src={image} alt="leaderIcon" className="rounded-full w-8 h-8" />
+              {medicalproBranding.leaders.map(({ image }, idx) => (
+                <img key={image + idx} src={image} alt="leaderIcon" className="rounded-full w-8 h-8" />
               ))}
             </div>
           </div>

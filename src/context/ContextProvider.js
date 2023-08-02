@@ -10,7 +10,7 @@ const initialState = {
 
 export const ContextProvider = ({children}) => {
   const [activeMenu, setActiveMenu] = useState(true);
-  const [isClicked, setIsClicked] = useState(initialState);
+  const [isClickedModals, setIsClickedModals] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
 
   const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "#7352FF");
@@ -30,21 +30,19 @@ export const ContextProvider = ({children}) => {
     setIsThemeModal(false);
   };
 
-  const handleClickModals = (clicked) => {
-    setIsClicked({
-      ...initialState, [clicked]: true
-    })
-  }
-  
+  const handleClickModals = (clicked, bool) => {
+    setIsClickedModals({
+      ...initialState, [clicked]: bool
+    });
+  };
+
   return (
     <StateContext.Provider
       value={{
         activeMenu,
         setActiveMenu,
 
-        isClicked,
-        setIsClicked,
-
+        isClickedModals,
         handleClickModals,
         
         screenSize,

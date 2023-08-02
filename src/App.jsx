@@ -51,7 +51,7 @@ export const App = () => {
             <SwitchTransition>
               <CSSTransition key={location.pathname} timeout={300} classNames="page">
                 <Routes>
-                  <Route path="/" element={<Ecommerce />} />
+                  <Route path="/dashboard-app" element={<Ecommerce />} />
                   <Route path="/ecommerce" element={<Ecommerce />} />
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/employees" element={<Employees />} />

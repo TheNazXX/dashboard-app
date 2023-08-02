@@ -21,7 +21,7 @@ export const Sidebar = () => {
 
         <Link 
           className="flex items-center gap-3 mt-4 text-xl font-extrabold tracking-tight dark:text-gray-200 text-slate-900" 
-          to="/" 
+          to="/dashboard-app" 
           onClick={handleCloseSidebar}
         >
           <SiShopware /> <span>Shoppy</span>
